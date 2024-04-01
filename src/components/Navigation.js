@@ -9,11 +9,11 @@ function Navigation() {
     <Navbar bg="light" variant="light" className="border-bottom" sticky="top">
       <Container>
         <Navbar.Brand>
-          <NavLink to="/" className="text-decoration-none text-black">Resume Builder</NavLink>
+          <NavLink to="/" className="text-decoration-none text-black">Цахим CV Бэлтгэх</NavLink>
         </Navbar.Brand>
         <Nav className="me-auto">
-          <NavLink to="/" className="mx-2 text-decoration-none text-black">Home</NavLink>
-          <NavLink to="#" className="mx-2 text-decoration-none text-black">About</NavLink>
+          <NavLink to="/" className="mx-2 text-decoration-none text-black">Нүүр</NavLink>
+          <NavLink to="#" className="mx-2 text-decoration-none text-black">Тухай</NavLink>
         </Nav>
       </Container>
     </Navbar>

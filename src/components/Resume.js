@@ -25,7 +25,7 @@ function Resume() {
         <Skills></Skills>
 
         <div className="d-grid col-2 mx-auto my-4 text-center">
-          <NavLink className="nav-link align-middle bg-dark text-white p-2 rounded" to="/preview">Preview</NavLink>
+          <NavLink className="nav-link align-middle bg-dark text-white p-2 rounded" to="/preview">Үүсгэх</NavLink>
         </div>
 
       </Container>

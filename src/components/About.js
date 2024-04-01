@@ -42,7 +42,7 @@ function About() {
     return (
         <Row className="justify-content-center mt-2">
             <Col md={8} sm={12} className="d-flex justify-content-between align-items-center bg-light rounded">
-                <h5 className="m-0">About</h5>
+                <h5 className="m-0">Өөрийн тухай</h5>
                 {!isEdit && <MdAddCircleOutline size={30} className="rounded edit" onClick={handleShow} />}
                 {isEdit && <MdEdit size={30} className="rounded edit" onClick={handleShow} />}
             </Col>
@@ -56,21 +56,21 @@ function About() {
             </Col>
             <Modal show={show} onHide={handleClose} centered backdrop="static">
                 <Modal.Header>
-                    <Modal.Title>About</Modal.Title>
+                    <Modal.Title>Өөрийн тухай</Modal.Title>
                     <MdClose size={30} className="rounded edit" onClick={handleClose} />
                 </Modal.Header>
 
                 <Modal.Body>
                     <Form noValidate validated={validated}>
                         <Form.Group className="mb-3">
-                            <Form.Control required as="textarea" rows={6} placeholder="Write about yourself" value={about} onChange={handleAbout} />
+                            <Form.Control required as="textarea" rows={6} placeholder="Өөрийнхөө тухай товч бичих" value={about} onChange={handleAbout} />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
 
                 <Modal.Footer>
                     <button type="submit" className="rounded edit px-2" onClick={handleClose}>
-                        Save Changes
+                        Хадгалах
                     </button>
                 </Modal.Footer>
             </Modal>

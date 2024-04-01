@@ -116,7 +116,7 @@ function Education() {
   return (
     <Row className="justify-content-center mt-2">
       <Col md={8} sm={12} className="d-flex justify-content-between align-items-center bg-light rounded">
-        <h5 className="m-0">Education</h5>
+        <h5 className="m-0">Боловсрол</h5>
         <MdAddCircleOutline size={30} className="rounded edit" onClick={handleShow} />
       </Col>
       <Col md={8} sm={12}>
@@ -130,7 +130,7 @@ function Education() {
                   <div className="px-3">
                     <h5 className="m-0">{item.institute}</h5>
                     <p className="text-muted m-0">{item.degree} • {item.fieldOfStudy}</p>
-                    <p className="text-muted">{item.startYear} - {item.endYear} • Grade: {item.grade}</p>
+                    <p className="text-muted">{item.startYear} - {item.endYear} • Голч дүн: {item.grade}</p>
                   </div>
 
                 </Col>
@@ -150,29 +150,29 @@ function Education() {
       </Col>
       <Modal show={show} onHide={handleClose} centered scrollable={true} backdrop="static">
         <Modal.Header>
-          <Modal.Title>Education</Modal.Title>
+          <Modal.Title>Боловсрол</Modal.Title>
           <MdClose size={30} className="rounded edit" onClick={handleClose} />
         </Modal.Header>
 
         <Modal.Body>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label>School / College</Form.Label>
+              <Form.Label>Их сургууль / Ахлах сургууль</Form.Label>
               <Form.Control required type="text" name="institute" size="sm" placeholder="Ex: Government Engineering College" value={form.institute} onChange={handleForm} />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Degree</Form.Label>
-              <Form.Control required type="text" name="degree" size="sm" placeholder="Ex: Bachelor of Engineering" value={form.degree} onChange={handleForm} />
+              <Form.Label>Зэрэг</Form.Label>
+              <Form.Control required type="text" name="degree" size="sm" placeholder="Ex: Инженерийн бакалавр" value={form.degree} onChange={handleForm} />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Field of study</Form.Label>
-              <Form.Control required type="text" name="fieldOfStudy" size="sm" placeholder="Ex: Computer Engineering" value={form.fieldOfStudy} onChange={handleForm} />
+              <Form.Label>Мэргэжил</Form.Label>
+              <Form.Control required type="text" name="fieldOfStudy" size="sm" placeholder="Ex: Программ хангамж" value={form.fieldOfStudy} onChange={handleForm} />
             </Form.Group>
             <Form.Group className="mb-3">
               <Row>
                 <Col>
                   <Row>
-                    <Form.Label>Start - Year</Form.Label>
+                    <Form.Label>Суралцаж эхэлсэн огноо</Form.Label>
                   </Row>
                   <Row>
                     <Col>
@@ -187,7 +187,7 @@ function Education() {
 
                     <Col>
                       <Row>
-                        <Form.Label>End - Year</Form.Label>
+                        <Form.Label>Төгссөн огноо</Form.Label>
                       </Row>
                       <Row>
                         <Col>
@@ -209,11 +209,11 @@ function Education() {
 
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Grade</Form.Label>
-              <Form.Control required type="text" name="grade" size="sm" placeholder="Ex: 8.5/10 CGPA" value={form.grade} onChange={handleForm} />
+              <Form.Label>Голч дүн</Form.Label>
+              <Form.Control required type="text" name="grade" size="sm" placeholder="Ex: 3/4.5 CGPA" value={form.grade} onChange={handleForm} />
             </Form.Group>
             <button type="submit" className="rounded edit px-2">
-              Save Changes
+              Хадгалах
             </button>
 
           </Form>

@@ -70,7 +70,7 @@ function Skills() {
   return (
     <Row className="justify-content-center mt-2">
       <Col md={8} sm={12} className="d-flex justify-content-between align-items-center bg-light rounded">
-        <h5 className="m-0">Skills</h5>
+        <h5 className="m-0">Авьяас</h5>
         {!isEdit && <MdAddCircleOutline size={30} className="rounded edit" onClick={handleShow} />}
         {isEdit && <MdEdit size={30} className="rounded edit" onClick={handleShow} />}
       </Col>
@@ -92,17 +92,17 @@ function Skills() {
       </Col>
       <Modal show={show} onHide={handleClose} centered backdrop="static">
         <Modal.Header>
-          <Modal.Title>Skills</Modal.Title>
+          <Modal.Title>Авьяас</Modal.Title>
           <MdClose size={30} className="rounded edit" onClick={handleClose} />
         </Modal.Header>
 
         <Modal.Body>
           <Form noValidate validated={validated} className="d-flex align-item-start mb-2" onSubmit={handleSkills}>
             <Form.Group className="">
-              <Form.Control required type="text" size="sm" placeholder="Enter Skill" value={input} onChange={handleInput} />
+              <Form.Control required type="text" size="sm" placeholder="Авьяасаа бичнэ үү" value={input} onChange={handleInput} />
             </Form.Group>
             <button type="submit" className="rounded edit m-0 mx-2">
-              Add Skill
+              нэмэх
             </button>
           </Form>
           <hr></hr>

@@ -126,7 +126,7 @@ function Experience() {
   return (
     <Row className="justify-content-center mt-2">
       <Col md={8} sm={12} className="d-flex justify-content-between align-items-center bg-light rounded">
-        <h5 className="m-0">Experience</h5>
+        <h5 className="m-0">Туршлага</h5>
         <MdAddCircleOutline size={30} className="rounded edit" onClick={handleShow} />
       </Col>
       <Col md={8} sm={12}>
@@ -158,28 +158,28 @@ function Experience() {
       </Col>
       <Modal show={show} onHide={handleClose} centered scrollable={true} backdrop="static">
         <Modal.Header>
-          <Modal.Title>Experience</Modal.Title>
+          <Modal.Title>Туршлага</Modal.Title>
           <MdClose size={30} className="rounded edit" onClick={handleClose} />
         </Modal.Header>
 
         <Modal.Body>
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label>Title</Form.Label>
+              <Form.Label>Гарчиг</Form.Label>
               <Form.Control required type="text" size="sm" placeholder="Ex: React Developer" name="title" value={form.title} onChange={handleForm} />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Company Name</Form.Label>
+              <Form.Label>Компани нэр</Form.Label>
               <Form.Control required type="text" size="sm" placeholder="Ex: Amazon" name="company" value={form.company} onChange={handleForm} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="I am currently working in this role" name="isWorking" checked={form.isWorking} onChange={handleForm} />
+              <Form.Check type="checkbox" label="Ажиллаж байгаа" name="isWorking" checked={form.isWorking} onChange={handleForm} />
             </Form.Group>
             <Form.Group className="mb-3">
               <Row>
                 <Col>
                   <Row>
-                    <Form.Label>Start Month - Year</Form.Label>
+                    <Form.Label>Ажиллаж эхэлсэн огноо</Form.Label>
                   </Row>
                   <Row>
                     <Col>
@@ -199,7 +199,7 @@ function Experience() {
 
                     <Col>
                       <Row>
-                        <Form.Label>End Month - Year</Form.Label>
+                        <Form.Label>Ажилаас гарсан огноо</Form.Label>
                       </Row>
                       <Row>
                         <Col>
@@ -226,15 +226,15 @@ function Experience() {
 
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Location</Form.Label>
-              <Form.Control required type="text" size="sm" placeholder="Ex: Pune, India" name="location" value={form.location} onChange={handleForm} />
+              <Form.Label>Хаяг</Form.Label>
+              <Form.Control required type="text" size="sm" placeholder="Ex: Улаанбаатар" name="location" value={form.location} onChange={handleForm} />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Description</Form.Label>
-              <Form.Control required type="text" size="sm" placeholder="Ex: Worked as a Front-End Developer" name="description" value={form.description} onChange={handleForm} />
+              <Form.Label>Нэмэлт тайлбар</Form.Label>
+              <Form.Control required type="text" size="sm" placeholder="Ex: Front-End Developer -оор ажиллаж байсан" name="description" value={form.description} onChange={handleForm} />
             </Form.Group>
             <button type="submit" className="rounded edit px-2">
-              Save Changes
+              Хадгалах
             </button>
 
           </Form>

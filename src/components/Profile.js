@@ -2,7 +2,7 @@ import React, { Fragment, useState  } from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {MdEdit, MdClose} from 'react-icons/md';
-import {HiLocationMarker,HiOfficeBuilding,HiOutlineMail,HiPhone} from 'react-icons/hi';
+import {HiLocationMarker, HiOutlineMail,HiPhone} from 'react-icons/hi';
 import { BsGithub, BsLinkedin, BsGlobe} from 'react-icons/bs';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -28,8 +28,6 @@ function Profile() {
     //     github: "",
     //     linkedin: "",
     //     website: "",
-    //     position: "Your Position",
-    //     tagline: "Describe yourself in one line"
     // })
 
     const handleProfile = (e) => {
@@ -81,58 +79,47 @@ function Profile() {
                 </Col>
                 <Col className="d-flex justify-content-start">
                     <HiLocationMarker size={30} className="p-1"/><p className="p-1 m-0">{profile.location}</p>
-                    <HiOfficeBuilding size={30} className="p-1"/><p className="p-1 m-0">{profile.position}</p>
-                </Col>
-                <Col>
-                    <p className="px-2">{profile.tagline}</p>
                 </Col>
             </Col>
             <Col md={4} sm={6} className="d-flex flex-wrap">
-                <p className="p-1 m-0" onClick={()=>handleAlertShow("LinkedIn Profile",profile.linkedin)}><BsLinkedin size={30} className="p-1"/>LinkedIn</p>
-                <p className="p-1 m-0" onClick={()=>handleAlertShow("GitHub Profile",profile.github)}><BsGithub size={30} className="p-1"/>GitHub</p>
+                <p className="p-1 m-0" onClick={()=>handleAlertShow("LinkedIn URL",profile.linkedin)}><BsLinkedin size={30} className="p-1"/>LinkedIn URL</p>
+                <p className="p-1 m-0" onClick={()=>handleAlertShow("GitHub URL",profile.github)}><BsGithub size={30} className="p-1"/>GitHub URL</p>
                 <p className="p-1 m-0" onClick={()=>handleAlertShow("Portfolio",profile.website)}><BsGlobe size={30} className="p-1"/>Portfolio</p>
-                <p className="p-1 m-0" onClick={()=>handleAlertShow("Email Address",profile.email)}><HiOutlineMail size={30} className="p-1"/>Email</p>
-                <p className="p-1 m-0" onClick={()=>handleAlertShow("Contact Number",profile.contact)}><HiPhone size={30} className="p-1"/>Contact Number</p>
+                <p className="p-1 m-0" onClick={()=>handleAlertShow("Э-Мэйл хаяг",profile.email)}><HiOutlineMail size={30} className="p-1"/>Э-Мэйл хаяг</p>
+                <p className="p-1 m-0" onClick={()=>handleAlertShow("Холбоо барих",profile.contact)}><HiPhone size={30} className="p-1"/>Холбоо барих</p>
             </Col>
             
         </Row>
         <Modal show={show} onHide={handleClose} centered backdrop="static">
             <Modal.Header>
-                <Modal.Title>Profile Details</Modal.Title>
+                <Modal.Title>Дэлгэрэнгүй мэдээлэл</Modal.Title>
                 <MdClose size={30} className="rounded edit" onClick={handleClose}/>
             </Modal.Header>
 
             <Modal.Body>
                 <Form>
                     <Form.Group className="mb-3">
-                        <Form.Control type="text" name="name" size="sm" placeholder="Your Name" value={profile.name} onChange={handleProfile}/>
+                        <Form.Control type="text" name="name" size="sm" placeholder="Овог нэр" value={profile.name} onChange={handleProfile}/>
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Control type="text" name="location" size="sm" placeholder="City, Country" value={profile.location} onChange={handleProfile}/>
                     </Form.Group>
+                    
+                   
                     <Form.Group className="mb-3">
-                        <Form.Control type="text" name="position" size="sm" placeholder="Your Position" value={profile.position} onChange={handleProfile}/>
+                        <Form.Control type="email" name="email" size="sm" placeholder="Э-Мэйл хаяг" value={profile.email} onChange={handleProfile}/>
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <Form.Control type="text" name="tagline" size="sm" placeholder="Describe yourself in one line" value={profile.tagline} onChange={handleProfile}/>
+                        <Form.Control type="number" name="contact" size="sm" placeholder="Утасны дугаар" value={profile.contact} onChange={handleProfile}/>
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <Form.Control type="email" name="email" size="sm" placeholder="Email Address" value={profile.email} onChange={handleProfile}/>
+                        <Form.Control type="text" name="github" size="sm" placeholder="GitHub хаяг" value={profile.github} onChange={handleProfile}/>
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <Form.Control type="number" name="contact" size="sm" placeholder="Contact Number" value={profile.contact} onChange={handleProfile}/>
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Control type="text" name="github" size="sm" placeholder="GitHub Profile" value={profile.github} onChange={handleProfile}/>
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Control type="text" name="linkedin" size="sm" placeholder="LinkedIn Profile" value={profile.linkedin} onChange={handleProfile}/>
-                    </Form.Group>
-                    <Form.Group className="mb-3">
-                        <Form.Control type="text" name="website" size="sm" placeholder="Your Portfolio Website" value={profile.website} onChange={handleProfile}/>
+                        <Form.Control type="text" name="linkedin" size="sm" placeholder="LinkedIn хаяг" value={profile.linkedin} onChange={handleProfile}/>
                     </Form.Group>
                     <Form.Group controlId="formFileSm" className="mb-3">
-                        <Form.Label>Profile Picture</Form.Label>
+                        <Form.Label>Profile зураг</Form.Label>
                         <Form.Control type="file" size="sm" onChange={handleFile}/>
                     </Form.Group>
                 </Form>
@@ -140,7 +127,7 @@ function Profile() {
 
             <Modal.Footer>
                 <button type="submit" className="rounded edit px-2" onClick={handleClose}>
-                    Save Changes
+                    Хадгалах
                 </button>
             </Modal.Footer>
         </Modal>

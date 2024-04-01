@@ -1,13 +1,11 @@
 const profileReducer = (profile={
-    name: "Your Name",
-    location: "City, Name",
+    name: "Овог нэр",
+    location: "Төрсөн нутаг",
     github: "",
     linkedin: "",
     website: "",
     email: "",
     contact: "",
-    position: "Your Position",
-    tagline: "Describe yourself in one line"
 }, action) => {
     switch(action.type){
         case "MANAGE_PROFILE":

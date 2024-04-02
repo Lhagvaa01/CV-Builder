@@ -1,4 +1,4 @@
-import React, { Fragment, useState  } from 'react'
+import React, { Fragment, useEffect, useState  } from 'react'
 import { Stack } from 'react-bootstrap'
 import {BsLinkedin,BsGithub,BsGlobe} from 'react-icons/bs'
 import {GiGraduateCap} from 'react-icons/gi'
@@ -7,7 +7,7 @@ import jsPDF from 'jspdf';
 import html2canvas from "html2canvas";
 import axios from 'axios';
 import { saveAs } from 'file-saver';
-
+import QRCode from 'react-qr-code';
 import { useSelector } from 'react-redux';
 
 function PdfComponent() {
@@ -19,6 +19,8 @@ function PdfComponent() {
   const experienceList = useSelector(state => state.experienceList)
   const educationList = useSelector(state => state.educationList)
   const skills = useSelector(state => state.skills)
+
+
 
   const createAndDownloadPdf = () => {
     const data = {
@@ -40,13 +42,12 @@ function PdfComponent() {
   }
 
   const saveAsPNG = (imgData, name) => {
-    // Create a temporary <a> element
     const a = document.createElement('a');
     a.href = imgData;
-    a.download = `${name}.png`; // Set the filename
+    a.download = `${name}.png`; 
     document.body.appendChild(a);
-    a.click(); // Trigger the download
-    document.body.removeChild(a); // Cleanup
+    a.click(); 
+    document.body.removeChild(a);
   };
 
   
@@ -58,7 +59,7 @@ function PdfComponent() {
       .then((canvas) => {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF('p', 'pt', 'a4');
-        pdf.addImage(imgData, 'PNG', 0, 0, 595.28, 841.89); // Use standard A4 dimensions
+        pdf.addImage(imgData, 'PNG', 0, 0, 595.28, 841.89);
         pdf.save(`CV-${name}-V1.pdf`);
         // saveAsPNG(imgData, `CV-${name}-V1`);
       })
@@ -155,19 +156,64 @@ function PdfComponent() {
 
   }
 
-  const [showInput, setShowInput] = useState(false);
   const [email, setEmail] = useState(profile.email);
-
-  const createAndDownloadPdf2 = () => {
-    // Your PDF creation logic here
-    console.log('Email:', email);
-    // Assuming you want to reset the input and hide it after clicking the button
-    setEmail('');
-    setShowInput(false);
-  };
 
   const handleInputChange = (event) => {
     setEmail(event.target.value);
+  };
+
+  const saveImgDjango = (name) => {
+    const input = document.getElementById('divToPrint');
+    html2canvas(input)
+      .then((canvas) => {
+        canvas.toBlob((blob) => {
+          const formData = new FormData();
+          formData.append('name', name);
+          formData.append('image', blob, `CV-${name}-V1.png`);
+  
+          fetch(`${url}/save-img/`, {
+            method: 'POST',
+            body: formData,
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Failed to save image');
+            }
+            return response.json();
+          })
+          .then(data => {
+            if (data && data.data && data.data.image) {
+              setImageUrl(data.data.image);
+            } else {
+              console.error('Error saving image: Image URL not found in response');
+            }
+            
+            console.log('Image saved successfully:', data);
+          })
+          .catch((error) => {
+            console.error('Error saving image: ', error);
+          });
+        });
+      })
+      .catch((error) => {
+        console.error('Error creating image:', error);
+      });
+  };
+  
+  const [imageUrl, setImageUrl] = useState('');
+
+  useEffect(() => {
+    generateQRCode();
+  }, [imageUrl]);
+
+  
+
+  const [qrCodeData, setQRCodeData] = useState('');
+  const [url, setUrl] = useState('http://66.181.175.153:8080');
+
+  const generateQRCode = () => {
+    console.log(imageUrl);
+    setQRCodeData(`${url}${imageUrl}`);
   };
 
   return (
@@ -184,6 +230,15 @@ function PdfComponent() {
           />
           <button className="align-middle bg-dark text-white p-2 rounded mt-2" onClick={sendEmail}>Мэйл илгээх</button>
           <button className="align-middle bg-dark text-white p-2 rounded mt-2" onClick={() => saveImg(name[1])}>Зургаар татах</button>
+
+            <button className="align-middle bg-dark text-white p-2 rounded mt-2" onClick={() => saveImgDjango(name[1])}>QR Үүсгэх</button>
+            
+            {qrCodeData !== url && (
+              <div>
+                <h2>QR Code:</h2>
+                <QRCode value={qrCodeData} />
+              </div>
+            )}
       </div>
       <div className="container d-flex justify-content-center p-4">
         <div className="row pdf bg-light" id="divToPrint" size="A4">

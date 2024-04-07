@@ -94,3 +94,29 @@ export const removeEducation = (index) => {
         })
     }
 }
+
+export const addGeneralInfo = (form) => {
+    return (dispatch) => {
+        dispatch({
+            type: "ADD_GENERALINFO",
+            payload: form
+        })
+    }
+}
+export const editGeneralInfo = (form) => {
+    return (dispatch) => {
+        dispatch({
+            type: "EDIT_GENERALINFO",
+            payload: form
+        })
+    }
+}
+
+export const removeGeneralInfo = (index) => {
+    return (dispatch) => {
+        dispatch({
+            type: "REMOVE_GENERALINFO",
+            payload: index
+        })
+    }
+}

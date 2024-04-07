@@ -4,6 +4,7 @@ import aboutReducer from "./aboutReducer";
 import profileReducer from "./profileReducer";
 import experienceReducer from "./experienceReducer";
 import educationReducer from "./educationReducer";
+import generalInfoReduser from "./generalInfoReduser";
 import fileReducer from "./fileReducer";
 
 const reducers = combineReducers({
@@ -13,6 +14,7 @@ const reducers = combineReducers({
     profile: profileReducer,
     experienceList: experienceReducer,
     educationList: educationReducer,
+    generalInfoList: generalInfoReduser,
 });
 
 export default reducers

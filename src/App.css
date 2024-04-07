@@ -132,4 +132,11 @@ body {
   object-fit: cover;
   border-radius: 50%;
 }
+.pdf-profile-image2 {
+  height: 120px;
+  width: 90px;
+  border: 2px solid black;
+  object-fit: cover;
+
+}
 

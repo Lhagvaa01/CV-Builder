@@ -10,8 +10,10 @@ import { saveAs } from 'file-saver';
 import QRCode from 'react-qr-code';
 import { useSelector } from 'react-redux';
 import { BsFilePerson } from "react-icons/bs";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-function PdfComponent() {
+function PdfComp2() {
 
   const profile = useSelector(state => state.profile)
   const name = profile.name.split(" ");
@@ -242,10 +244,72 @@ function PdfComponent() {
               </div>
             )}
       </div>
-      <div className="container d-flex justify-content-center p-4">
-        <div className="row pdf bg-light" id="divToPrint" size="A4">
+      <div className="container d-flex  p-4">
+        <div className="pdf bg-light" id="divToPrint" size="A4">
+          <div className="d-flex justify-content-center mt-5">АЖИЛД ОРОХЫГ ХҮСЭГЧИЙН АНКЕТ</div>
+          <div className="d-flex justify-content-start mt-3 col-md px-5">
+            
+          <Col>
+            <Row>
+              {generalInfoList.map((item,id)=>{
+                return(
+                  <Col className='col-md-9'>
+                    <div>Ажлын нэр:</div>
+                    <div className="pt-3"><b>I. Товч танилцуулга</b></div>
+                    <div className='d-flex justify-content-between col-md-9'>
+                      <div>Эцэг/Эхийн нэр: {item.parentsName}</div>
+                      <div> Өөрийн нэр: {name[1]}</div>
+                    </div>
+                    <div>Хүйс: {item.gender}</div>
+                    <div>Төрсөн огноо: {item.birthDate}</div>
+                    <div>Төрсөн аймаг. хот: {profile.location}</div>
+                    <div>Регистрийн дугаар: {item.idNumber}</div>
+                    <div>Оршин суугаа хаяг: {item.idNumber}</div>
+                    <div className='d-flex justify-content-between col-md-10'>
+                      <div>Гар утас: {profile.contact}</div>
+                      <div>Фэйсбүүк хаяг: {profile.linkedin}</div>
+                    </div>
+                  </Col>
+                  )
+              })}
 
-          <div className="d-flex align-items-center justify-content-center col-md-5 bg-1 p-0 py-2">
+              <Col>
+              <div>
+                <img src={file} className="pdf-profile-image2" alt="..."></img>
+              </div>
+              </Col>
+            </Row>
+            <Col>
+              <div className="pt-3"><b>II. Боловсрол /Ерөнхий боловсролын сургуулийг оруулан бичнэ/</b></div>
+              <table style={{border: '1px solid black', textAlign: 'center' }}>
+                <tr>
+                  <td style={{border: '1px solid black' }} >Хаана, ямар сургууль</td>
+                  <td style={{border: '1px solid black' }}>Элссэн огноо</td>
+                  <td style={{border: '1px solid black' }}>Төгссөн огноо</td>
+                  <td style={{border: '1px solid black' }}>Эзэмшсэн мэргэжил</td>
+                  <td style={{border: '1px solid black' }}>Боловсрол</td>
+                </tr>
+              </table>
+            </Col>
+            <Col>
+              {educationList.map((item,id)=>{
+                <div>{item.institute}</div>
+                //  <table>
+                //    <tr>
+                //     <td style={{border: '1px solid black' }}>{item.institute}</td>
+                //     <td style={{border: '1px solid black' }}>Элссэн огноо</td>
+                //     <td style={{border: '1px solid black' }}>Төгссөн огноо</td>
+                //     <td style={{border: '1px solid black' }}>Эзэмшсэн мэргэжил</td>
+                //     <td style={{border: '1px solid black' }}>Боловсрол</td>
+                //   </tr>
+                //  </table>
+                })}
+            </Col>
+            
+          </Col>
+              
+          </div>
+          {/* <div className="d-flex align-items-center justify-content-center col-md-5 bg-1 p-0 py-2">
             <div>
               <div className="d-flex justify-content-center">
                 <img src={file} className="pdf-profile-image" alt="..."></img>
@@ -352,7 +416,7 @@ function PdfComponent() {
               </div>
             </div>
 
-          </div>
+          </div> */}
 
         </div>
 
@@ -362,4 +426,4 @@ function PdfComponent() {
   )
 }
 
-export default PdfComponent
+export default PdfComp2

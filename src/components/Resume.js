@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import Container from 'react-bootstrap/Container';
 import Profile from './Profile';
 import About from './About';
+import GeneralInfo from './GeneralInfo';
 import Experience from './Experience';
 import Education from './Education';
 import Skills from './Skills';
@@ -18,6 +19,8 @@ function Resume() {
 
         <About></About>
 
+        <GeneralInfo></GeneralInfo>
+
         <Experience></Experience>
 
         <Education></Education>
@@ -26,6 +29,9 @@ function Resume() {
 
         <div className="d-grid col-2 mx-auto my-4 text-center">
           <NavLink className="nav-link align-middle bg-dark text-white p-2 rounded" to="/preview">Үүсгэх</NavLink>
+        </div>
+        <div className="d-grid col-2 mx-auto my-4 text-center">
+          <NavLink className="nav-link align-middle bg-dark text-white p-2 rounded" to="/preview2">Үүсгэх 2</NavLink>
         </div>
 
       </Container>

@@ -55,6 +55,7 @@ function GeneralInfo() {
     name: "",
     gender: "",
     birthDate: "",
+    address: "",
     idNumber: "",
     maritalStatus: "",
     driversLisence: "",
@@ -97,6 +98,7 @@ function GeneralInfo() {
         name: "",
         gender: "",
         birthDate: "",
+        address: "",
         idNumber: "",
         maritalStatus: "",
         driversLisence: "",
@@ -275,8 +277,13 @@ function GeneralInfo() {
             </Form.Group>
 
             <Form.Group className="mb-3">
+              <Form.Label>Оршин суугаа хаяг</Form.Label>
+              <Form.Control required type="text" name="address" size="sm" placeholder="Ex: БГД 7-р хороо" value={form.address} onChange={handleForm} />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
               <Form.Label>Регистрийн дугаар</Form.Label>
-              <Form.Control required type="text" name="idNumber" size="sm" placeholder="Ex: Гэрлээгүй" value={form.idNumber} onChange={handleForm} />
+              <Form.Control required type="text" name="idNumber" size="sm" placeholder="Ex: WE99999999" value={form.idNumber} onChange={handleForm} />
             </Form.Group>
 
             <Form.Group className="mb-3">

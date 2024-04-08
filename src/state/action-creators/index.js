@@ -120,3 +120,29 @@ export const removeGeneralInfo = (index) => {
         })
     }
 }
+
+export const addFamilyInfo = (form) => {
+    return (dispatch) => {
+        dispatch({
+            type: "ADD_FAMILYINFO",
+            payload: form
+        })
+    }
+}
+export const editFamilyInfo = (form) => {
+    return (dispatch) => {
+        dispatch({
+            type: "EDIT_FAMILYINFO",
+            payload: form
+        })
+    }
+}
+
+export const removeFamilyInfo = (index) => {
+    return (dispatch) => {
+        dispatch({
+            type: "REMOVE_FAMILYINFO",
+            payload: index
+        })
+    }
+}

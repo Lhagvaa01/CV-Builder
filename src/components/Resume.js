@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Profile from './Profile';
 import About from './About';
 import GeneralInfo from './GeneralInfo';
+import FamilyInfo from './FamilyInfo';
 import Experience from './Experience';
 import Education from './Education';
 import Skills from './Skills';
@@ -20,6 +21,8 @@ function Resume() {
         <About></About>
 
         <GeneralInfo></GeneralInfo>
+
+        <FamilyInfo></FamilyInfo>
 
         <Experience></Experience>
 

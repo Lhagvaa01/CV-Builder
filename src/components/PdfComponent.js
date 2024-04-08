@@ -287,7 +287,7 @@ function PdfComponent() {
               </div>
 
               <div className="px-4">
-                <h4 className="title">Туршлага</h4>
+                <h4 className="title">Ерөнхий мэдээлэл</h4>
                 {
                   generalInfoList.map((item,id)=>{
                     return(
